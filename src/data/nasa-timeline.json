@@ -1,0 +1,482 @@
+{
+	"eras": [
+		{
+			"era": "1958-1970",
+			"eraDescription": "NASA's founding and the intense Space Race era focused on human spaceflight. Key programs included Mercury, Gemini, and Apollo, culminating in the historic Moon landings and establishing U.S. leadership in space exploration.",
+			"items": [
+				{
+					"year": 1958,
+					"title": "NASA Founded",
+					"description": "President Eisenhower signs the National Aeronautics and Space Act, establishing NASA on October 1, 1958.",
+					"tag": "Founding",
+					"image": {
+						"src": "nasa-founded.jpg",
+						"alt": "President Eisenhower presents commissions to NASA's first Administrator T. Keith Glennan and Deputy Administrator Hugh Dryden"
+					},
+					"link": {
+						"url": "https://www.nasa.gov/history/65-years-ago-nasa-begins-operations/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 1959,
+					"title": "Mercury 7 Astronauts",
+					"description": "NASA introduces the first American astronauts, the Mercury Seven.",
+					"tag": "Human Spaceflight",
+					"image": {
+						"src": "mercury-7-astronauts.jpg",
+						"alt": "Group portrait of the seven Mercury astronauts in their silver pressure suits"
+					}
+				},
+				{
+					"year": 1961,
+					"title": "Alan Shepard First Flight",
+					"description": "Alan Shepard becomes the first American in space aboard Freedom 7.",
+					"tag": "Human Spaceflight",
+					"image": {
+						"src": "alan-shepard-freedom7.jpg",
+						"alt": "Alan Shepard suited up before boarding the Freedom 7 Mercury capsule for his historic suborbital flight"
+					},
+					"link": {
+						"url": "https://www.nasa.gov/history/freedom-7-the-first-american-in-space/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 1962,
+					"title": "John Glenn Orbits Earth",
+					"description": "John Glenn becomes the first American to orbit Earth on Friendship 7.",
+					"tag": "Human Spaceflight",
+					"image": {
+						"src": "john-glenn-friendship7.jpg",
+						"alt": "John Glenn inside the Friendship 7 Mercury capsule before his three-orbit flight around Earth"
+					}
+				},
+				{
+					"year": 1963,
+					"title": "Project Gemini Begins",
+					"description": "Gemini program starts, developing critical techniques for Apollo Moon landings.",
+					"tag": "Program",
+					"image": {
+						"src": "project-gemini.jpg",
+						"alt": "Gemini spacecraft and astronauts during an extravehicular activity in orbit above Earth"
+					}
+				},
+				{
+					"year": 1968,
+					"title": "Apollo 8 Moon Orbit",
+					"description": "Apollo 8 becomes the first crewed spacecraft to orbit the Moon and capture Earthrise.",
+					"tag": "Moon Mission",
+					"image": {
+						"src": "apollo-8-earthrise.jpg",
+						"alt": "The iconic Earthrise photograph showing Earth rising above the lunar horizon, taken by Apollo 8 astronauts"
+					},
+					"link": {
+						"url": "https://www.nasa.gov/missions/apollo-8-christmas-at-the-moon/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 1969,
+					"title": "Apollo 11 Moon Landing",
+					"description": "Neil Armstrong and Buzz Aldrin become the first humans to walk on the Moon.",
+					"tag": "Moon Mission",
+					"image": {
+						"src": "apollo-11-moon-landing.jpg",
+						"alt": "Buzz Aldrin stands on the lunar surface during the Apollo 11 moonwalk, with the Eagle lander and equipment visible behind him"
+					},
+					"link": {
+						"url": "https://www.nasa.gov/mission/apollo-11/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 1969,
+					"title": "Apollo 12 Second Landing",
+					"description": "Second successful crewed Moon landing, with precise touchdown near Surveyor 3.",
+					"tag": "Moon Mission",
+					"image": {
+						"src": "apollo-12-moon-landing.jpg",
+						"alt": "Apollo 12 astronaut on the lunar surface near the Surveyor 3 spacecraft during the second crewed Moon landing"
+					}
+				}
+			]
+		},
+		{
+			"era": "1971-1990",
+			"eraDescription": "Post-Apollo transition to reusable spacecraft and planetary exploration. This era featured Skylab, the first Space Shuttle flights, international cooperation like Apollo-Soyuz, and major robotic missions including Voyager and Hubble's launch.",
+			"items": [
+				{
+					"year": 1971,
+					"title": "Mariner 9 Mars Orbiter",
+					"description": "Mariner 9 becomes the first spacecraft to orbit another planet, mapping Mars.",
+					"tag": "Mission",
+					"image": {
+						"src": "mariner-9-mars.jpg",
+						"alt": "Mariner 9 spacecraft image of the Martian surface showing craters and geological features mapped during its orbital mission"
+					}
+				},
+				{
+					"year": 1973,
+					"title": "Skylab Launch",
+					"description": "America's first space station, Skylab, is launched and hosts three crews.",
+					"tag": "Space Station",
+					"image": {
+						"src": "skylab-launch.jpg",
+						"alt": "Skylab space station in orbit above Earth, showing its solar arrays and the damaged micrometeoroid shield"
+					},
+					"link": {
+						"url": "https://www.nasa.gov/history/skylab-americas-first-space-station/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 1975,
+					"title": "Apollo-Soyuz Test Project",
+					"description": "First joint US-Soviet space mission, symbolizing d\u00e9tente during the Cold War.",
+					"tag": "Human Spaceflight",
+					"image": {
+						"src": "apollo-soyuz.jpg",
+						"alt": "American Apollo and Soviet Soyuz spacecraft docked together in orbit during the historic joint US-Soviet mission"
+					}
+				},
+				{
+					"year": 1977,
+					"title": "Voyager 1 & 2 Launches",
+					"description": "Twin Voyager probes launched to explore the outer planets and beyond.",
+					"tag": "Probe",
+					"image": {
+						"src": "voyager-probe.jpg",
+						"alt": "Artist's rendering of the Voyager spacecraft with its large dish antenna and instrument boom extended in deep space"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/voyager/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 1981,
+					"title": "First Space Shuttle Launch",
+					"description": "Columbia (STS-1) marks the beginning of the reusable Space Shuttle era.",
+					"tag": "Shuttle",
+					"image": {
+						"src": "shuttle-columbia-sts1.jpg",
+						"alt": "Space Shuttle Columbia lifting off from Kennedy Space Center on STS-1, the first Space Shuttle mission"
+					},
+					"link": {
+						"url": "https://www.nasa.gov/mission/sts-1/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 1983,
+					"title": "Sally Ride First US Woman",
+					"description": "Sally Ride becomes the first American woman in space on STS-7.",
+					"tag": "Human Spaceflight",
+					"image": {
+						"src": "sally-ride.jpg",
+						"alt": "Sally Ride working at a control station aboard Space Shuttle Challenger during the STS-7 mission"
+					}
+				},
+				{
+					"year": 1986,
+					"title": "Challenger Disaster",
+					"description": "Space Shuttle Challenger tragedy leads to major safety improvements.",
+					"tag": "Tragedy",
+					"image": {
+						"src": "challenger-disaster.jpg",
+						"alt": "Space Shuttle Challenger breaking apart shortly after launch on January 28, 1986"
+					}
+				},
+				{
+					"year": 1990,
+					"title": "Hubble Space Telescope",
+					"description": "Hubble is deployed, revolutionizing astronomy despite initial mirror issues.",
+					"tag": "Telescope",
+					"image": {
+						"src": "hubble-deployment.jpg",
+						"alt": "Hubble Space Telescope being released from Space Shuttle Discovery's robotic arm during its deployment in low Earth orbit"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/hubble/",
+						"isExternal": true
+					}
+				}
+			]
+		},
+		{
+			"era": "1991-2005",
+			"eraDescription": "Hubble servicing, International Space Station assembly, and renewed Mars exploration. This period emphasized international collaboration, repair of major observatories, and robotic missions that advanced our understanding of the solar system.",
+			"items": [
+				{
+					"year": 1993,
+					"title": "Hubble Repair Mission",
+					"description": "STS-61 astronauts repair Hubble's mirror, enabling groundbreaking discoveries.",
+					"tag": "Telescope",
+					"image": {
+						"src": "hubble-repair.jpg",
+						"alt": "Astronaut Story Musgrave anchored in the Space Shuttle payload bay during a spacewalk to service the Hubble Space Telescope"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/hubble/observatory/missions-to-hubble/servicing-mission-1/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 1996,
+					"title": "Mars Pathfinder & Sojourner",
+					"description": "First rover on Mars explores the surface after successful airbag landing.",
+					"tag": "Rover",
+					"image": {
+						"src": "mars-pathfinder-sojourner.jpg",
+						"alt": "The Sojourner rover on the Martian surface next to a rock, with the Mars Pathfinder lander visible in the background"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/mars-pathfinder/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 1998,
+					"title": "ISS Construction Begins",
+					"description": "First ISS modules (Zarya and Unity) are launched and joined in orbit.",
+					"tag": "Space Station",
+					"image": {
+						"src": "iss-construction.jpg",
+						"alt": "The Zarya and Unity modules of the International Space Station joined together in orbit, photographed from Space Shuttle Endeavour"
+					}
+				},
+				{
+					"year": 1999,
+					"title": "Chandra X-ray Observatory",
+					"description": "Chandra launches as NASA's third Great Observatory for high-energy astronomy.",
+					"tag": "Telescope",
+					"image": {
+						"src": "chandra-observatory.jpg",
+						"alt": "Chandra X-ray Observatory spacecraft in orbit, with its cylindrical body and solar panels extended"
+					}
+				},
+				{
+					"year": 2003,
+					"title": "Spirit & Opportunity Rovers",
+					"description": "Twin Mars Exploration Rovers land and begin extensive surface missions.",
+					"tag": "Rover",
+					"image": {
+						"src": "spirit-opportunity-rovers.jpg",
+						"alt": "One of the Mars Exploration Rovers on the Martian surface, with rocky red terrain stretching to the horizon"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/mer/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 2004,
+					"title": "Cassini Arrives at Saturn",
+					"description": "Cassini enters Saturn orbit for detailed study of the planet and its moons.",
+					"tag": "Mission",
+					"image": {
+						"src": "cassini-saturn.jpg",
+						"alt": "Saturn and its rings photographed by the Cassini spacecraft, showing the planet's banded atmosphere and iconic ring system"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/cassini/",
+						"isExternal": true
+					}
+				}
+			]
+		},
+		{
+			"era": "2006-2018",
+			"eraDescription": "End of the Shuttle era and a shift toward deep space robotic exploration and commercial partnerships. Highlights include Pluto flyby, Curiosity landing, Voyager entering interstellar space, and Cassini's dramatic end.",
+			"items": [
+				{
+					"year": 2006,
+					"title": "New Horizons Launch",
+					"description": "New Horizons launches on its journey to Pluto and the Kuiper Belt.",
+					"tag": "Mission",
+					"image": {
+						"src": "new-horizons-launch.jpg",
+						"alt": "New Horizons spacecraft launching atop an Atlas V rocket from Cape Canaveral on its journey to Pluto and beyond"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/new-horizons/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 2011,
+					"title": "Space Shuttle Program Ends",
+					"description": "Final Shuttle mission (STS-135) concludes 30 years and 135 flights.",
+					"tag": "Shuttle",
+					"image": {
+						"src": "shuttle-program-ends.jpg",
+						"alt": "Space Shuttle Atlantis touching down on the runway at Kennedy Space Center at the conclusion of STS-135, the final Shuttle mission"
+					}
+				},
+				{
+					"year": 2012,
+					"title": "Curiosity Rover Landing",
+					"description": "Curiosity lands in Gale Crater using the revolutionary sky crane system.",
+					"tag": "Rover",
+					"image": {
+						"src": "curiosity-landing.jpg",
+						"alt": "Curiosity rover's first images from the surface of Mars inside Gale Crater, showing the rocky Martian terrain"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/msl-curiosity/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 2012,
+					"title": "Voyager 1 Enters Interstellar Space",
+					"description": "Voyager 1 becomes the first human-made object to enter interstellar space.",
+					"tag": "Probe",
+					"image": {
+						"src": "voyager-1-interstellar.jpg",
+						"alt": "Artist's concept of Voyager 1 spacecraft crossing the heliopause and entering interstellar space beyond our solar system"
+					}
+				},
+				{
+					"year": 2015,
+					"title": "New Horizons Pluto Flyby",
+					"description": "Historic first close-up images and data from Pluto and its moons.",
+					"tag": "Mission",
+					"image": {
+						"src": "pluto-flyby.jpg",
+						"alt": "Close-up image of Pluto captured by New Horizons showing the heart-shaped Tombaugh Regio nitrogen ice plain"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/new-horizons/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 2017,
+					"title": "Cassini Grand Finale",
+					"description": "Cassini ends its mission with a dramatic plunge into Saturn's atmosphere.",
+					"tag": "Mission",
+					"image": {
+						"src": "cassini-grand-finale.jpg",
+						"alt": "Artist's impression of the Cassini spacecraft making its final plunge into Saturn's atmosphere during the Grand Finale"
+					}
+				},
+				{
+					"year": 2018,
+					"title": "InSight Mars Lander",
+					"description": "InSight launches to study Mars' deep interior and seismic activity.",
+					"tag": "Mission",
+					"image": {
+						"src": "insight-lander.jpg",
+						"alt": "InSight lander on the Martian surface with its solar panels deployed and seismometer placed on the ground nearby"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/insight/",
+						"isExternal": true
+					}
+				}
+			]
+		},
+		{
+			"era": "2019-present",
+			"eraDescription": "The Artemis era and next-generation observatories. Focus on returning humans to the Moon, powerful new telescopes like JWST, Mars sample return preparation, and expanding commercial crew operations to the ISS.",
+			"items": [
+				{
+					"year": 2020,
+					"title": "Perseverance Rover Launch",
+					"description": "Perseverance launches with Ingenuity helicopter and sample caching system.",
+					"tag": "Rover",
+					"image": {
+						"src": "perseverance-launch.jpg",
+						"alt": "United Launch Alliance Atlas V rocket carrying the Perseverance rover lifting off from Cape Canaveral Space Force Station"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/mars-2020-perseverance/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 2021,
+					"title": "James Webb Space Telescope",
+					"description": "JWST launches as the most powerful space telescope ever built.",
+					"tag": "Telescope",
+					"image": {
+						"src": "james-webb-telescope.jpg",
+						"alt": "James Webb Space Telescope's first full-colour deep field image showing thousands of galaxies in unprecedented detail"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/webb/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 2021,
+					"title": "Ingenuity Mars Helicopter",
+					"description": "Ingenuity achieves the first powered flight on another planet.",
+					"tag": "Mission",
+					"image": {
+						"src": "ingenuity-helicopter.jpg",
+						"alt": "Ingenuity Mars helicopter hovering above the Martian surface during one of its early test flights, photographed by the Perseverance rover"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/ingenuity/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 2022,
+					"title": "Artemis I Test Flight",
+					"description": "Uncrewed Artemis I successfully tests SLS rocket and Orion spacecraft.",
+					"tag": "Program",
+					"image": {
+						"src": "artemis-i.jpg",
+						"alt": "NASA's Space Launch System rocket carrying the Orion spacecraft lifting off from Kennedy Space Center on the Artemis I mission"
+					},
+					"link": {
+						"url": "https://www.nasa.gov/mission/artemis-i/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 2023,
+					"title": "OSIRIS-REx Sample Return",
+					"description": "Asteroid Bennu samples returned to Earth by OSIRIS-REx.",
+					"tag": "Mission",
+					"image": {
+						"src": "osiris-rex-return.jpg",
+						"alt": "OSIRIS-REx sample return capsule shortly after landing in the Utah desert, containing asteroid Bennu material"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/osiris-rex/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 2024,
+					"title": "Europa Clipper Launch",
+					"description": "Europa Clipper launches to investigate Jupiter's icy moon and potential ocean.",
+					"tag": "Mission",
+					"image": {
+						"src": "europa-clipper.jpg",
+						"alt": "Artist's concept of the Europa Clipper spacecraft flying past Jupiter's moon Europa with its large solar arrays extended"
+					},
+					"link": {
+						"url": "https://science.nasa.gov/mission/europa-clipper/",
+						"isExternal": true
+					}
+				},
+				{
+					"year": 2025,
+					"title": "Commercial Crew Operations",
+					"description": "Ongoing crew rotations to ISS via commercial partners SpaceX and Boeing.",
+					"tag": "Human Spaceflight",
+					"image": {
+						"src": "commercial-crew-iss.jpg",
+						"alt": "SpaceX Crew Dragon spacecraft docked to the International Space Station with Earth visible below"
+					}
+				}
+			]
+		}
+	]
+}
