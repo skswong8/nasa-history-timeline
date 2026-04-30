@@ -9,6 +9,11 @@ interface TimelineClientProps {
 	eras: TimelineEra[]
 }
 
+/**
+ * CSR entrypoint to set state and render components.
+ * @param eras Array of timeline eras.
+ * @returns Timeline markup.
+ */
 export default function TimelineClient({ eras }: TimelineClientProps) {
 	const [selectedEra, setSelectedEra] = useState<string>(eras[0].title);
 	const [eraDescription, setEraDescription] = useState<string>(eras[0].description);

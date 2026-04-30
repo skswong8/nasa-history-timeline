@@ -11,8 +11,8 @@ interface ErasProp {
 
 /**
  * Renders the timeline cards.
- * @param selectedEra - Selected era.
- * @param setEraDescription - State setter to update the era description.
+ * @param selectedEra Selected era.
+ * @param setEraDescription State setter to update the era description.
  * @returns A list of timeline cards.
  */
 export default function ArchiveList( { selectedEra, setEraDescription }: ErasProp ) {

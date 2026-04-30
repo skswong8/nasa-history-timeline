@@ -9,8 +9,8 @@ interface ErasProp {
 
 /**
  * Renders the era navigation buttons.
- * @param eras - Array of timeline eras.
- * @param setSelectedEra - State setter to update the currently selected era.
+ * @param eras Array of timeline eras.
+ * @param setSelectedEra State setter to update the currently selected era.
  * @returns A list of era buttons.
  */
 export default function Eras( { eras, setSelectedEra }: ErasProp ) {
@@ -20,7 +20,7 @@ export default function Eras( { eras, setSelectedEra }: ErasProp ) {
 					<ul>
 					{ eras.map((era: TimelineEra, index: number) => (
 						<button
-							className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded"
+							className="cursor-pointer bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded"
 							key={ index }
 							onClick={ () => {
 								setSelectedEra(era.title);

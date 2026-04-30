@@ -3,7 +3,7 @@ import TimelineClient from './components/TimelineClient';
 /**
  * Home SSR entrypoint.
  * Fetches eras.
- * @returns { object } CSR entrypoint.
+ * @returns CSR entrypoint.
  */
 export default async function Home() {
 	const fetchEras = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/timeline/eras`);
