@@ -1,13 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
-import { TimelineData } from '@/types/timeline'
+import { NextRequest, NextResponse } from 'next/server';
+import { TimelineData } from '@/types/timeline';
+import { getTimelineData } from '@/lib/timeline';
 
 export async function GET( request: NextRequest ) {
-	const filePath = path.join(process.cwd(), 'src/data', 'nasa-timeline.json');
-	const file = await fs.readFile(filePath, 'utf-8');
-	const data: TimelineData = JSON.parse(file);
-
+	const data: TimelineData = await getTimelineData();
 	const searchParams = request.nextUrl.searchParams;
 	const query = searchParams.get('era'); // e.g. `/api/timeline?era=1958-1970`
 
