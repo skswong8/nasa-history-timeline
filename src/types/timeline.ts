@@ -18,11 +18,16 @@ export interface TimelineItem {
 }
 
 export interface TimelineEra {
+	title: string
+	description: string
+}
+
+export interface TimelineEras {
 	era: string
 	eraDescription: string
 	items: TimelineItem[]
 }
 
 export interface TimelineData {
-	eras: TimelineEra[]
+	eras: TimelineEras[]
 }
