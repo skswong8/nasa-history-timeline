@@ -3,6 +3,18 @@
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
+	--nasa_blue: #0B3D91;
+	--nasa_blue_rgb: 11, 61, 145;
+	--nasa_red: #FC3D21;
+	--nasa_red_rgb: 252, 61, 33;
+	--white: #fff;
+	--white_rgb: 255, 255, 255;
+	--black: #0E0E0E;
+	--black_rgb: 14, 14, 14;
+}
+
+@theme {
+  --color-black: var( --black );
 }
 
 @theme inline {

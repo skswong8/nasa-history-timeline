@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { fetchEra } from '../services/api';
 import { TimelineItem } from '@/types/timeline';
+import TimelineCard from './TimelineCard';
 
 interface ErasProp {
 	selectedEra: string
@@ -15,10 +16,29 @@ interface ErasProp {
  * @param setEraDescription State setter to update the era description.
  * @returns A list of timeline cards.
  */
-export default function ArchiveList( { selectedEra, setEraDescription }: ErasProp ) {
+export default function TimelineGrid( { selectedEra, setEraDescription }: ErasProp ) {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const seenYears = new Set<number>()
+
+/**
+ * Computes a flag for each timeline item indicating whether its year
+ * should be displayed, used to render a year label above the first
+ * card of each year group.
+ *
+ * @param data Array of timeline items.
+ * @returns A new array of timeline items extended with a `showYear` boolean,
+ * which is `true` only for the first item of each unique year.
+ */
+	const cardsWithYearFlag = data.map( ( item: TimelineItem ) => {
+		const showYear = ! seenYears.has( item.year );
+		seenYears.add( item.year )
+		return {
+			...item,
+			showYear
+		}
+	})
 
 	useEffect(() => {
 		fetchEra(selectedEra)
@@ -35,18 +55,16 @@ export default function ArchiveList( { selectedEra, setEraDescription }: ErasPro
 	}, [setEraDescription, selectedEra]);
 
 	return (
-		<div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-			<div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+		<div className="">
 				{ loading && <div>Loading...</div> }
 				{ error && <div>Something went wrong: {error}</div> }
 				{ !loading && !error &&
-					<ul>
-						{ data.map((era: TimelineItem, index: number) => (
-							<li key={index}>{era.title}</li>
+					<div className="grid grid-cols-3 gap-4">
+						{ cardsWithYearFlag.map((item, index) => (
+							<TimelineCard key={ index } era={ item } showYear={ item.showYear } />
 						)) }
-					</ul>
+					</div>
 				}
-			</div>
 		</div>
 	)
 }

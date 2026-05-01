@@ -1,0 +1,25 @@
+.timeline-card__tag {
+	background: var( --nasa_blue );
+}
+
+.timeline-card__container {
+	height: 340px;
+
+	@media (min-width: 768px) {
+		height: 440px;
+	}
+
+	@media (min-width: 1024px) {
+		height: 400px;
+	}
+}
+
+div.timeline-card__display-year {
+    text-shadow: 0 0 4px rgba( var( --black_rgb ), 0.25 );
+}
+
+.timeline-button {
+	a {
+		background-color: var( --nasa_red );
+	}
+}
