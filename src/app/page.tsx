@@ -1,5 +1,6 @@
 import TimelineClient from './components/TimelineClient';
-import Image from 'next/image'
+import Image from 'next/image';
+import '@/styles/main.scss';
 
 /**
  * Home SSR entrypoint.

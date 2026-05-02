@@ -5,21 +5,76 @@
 .timeline-card__container {
 	height: 340px;
 
-	@media (min-width: 768px) {
+	@media ( min-width: 768px ) {
 		height: 440px;
 	}
 
-	@media (min-width: 1024px) {
+	@media ( min-width: 1024px ) {
 		height: 400px;
 	}
 }
 
 div.timeline-card__display-year {
-    text-shadow: 0 0 4px rgba( var( --black_rgb ), 0.25 );
+	text-shadow: 0 0 4px rgba( var( --black_rgb ), 0.25 );
 }
 
 .timeline-button {
 	a {
 		background-color: var( --nasa_red );
+		transition: all 250ms ease;
+
+		&:hover,
+		&:focus {
+			background-color: rgba( var( --nasa_red_rgb ), 0.75 );
+		}
 	}
+}
+
+.timeline-card {
+	&[data-show-year="false"] span {
+		clip: rect( 0 0 0 0 );
+		clip-path: inset( 50% );
+		height: 1px;
+		width: 1px;
+		overflow: hidden;
+		position: absolute;
+		white-space: nowrap;
+	}
+
+	&__year {
+		position: relative;
+
+		&::before {
+			content: "";
+			background-color: rgba( var( --white_rgb ), 0.3 );
+			width: 100%;
+			height: 1px;
+			position: absolute;
+			left: 0;
+			top: 50%;
+
+			.timeline-card:not(:last-of-type) & {
+				width: calc( 100% + 2.25rem );
+
+				@media ( min-width: 1024px ) {
+					width: calc( 100% + 3rem );
+				}
+			}
+
+			.timeline-card:nth-child(3n) & {
+				@media ( min-width: 1024px ) {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	a[target="_blank"]::after {
+		color: var( --white );
+	}
+}
+
+.timeline-card__content {
+    background: linear-gradient( 180deg, rgba( var( --black_rgb ), 0 ) 22.14%, rgba( var( --black_rgb ), .8 ) 62.04% );
+    box-shadow: 0 0 60px 6px rgba( var( --black_rgb ), 0.3 );
 }
