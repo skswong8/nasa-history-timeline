@@ -2,12 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import { fetchEra } from '../services/api';
-import { TimelineItem } from '@/types/timeline';
+import { TimelineItem, EraNavigation } from '@/types/timeline';
 import TimelineCard from './TimelineCard';
+import TimelineNavigationCards from './TimelineNavigationCards';
 
 interface ErasProp {
+	timelineRef: React.RefObject<HTMLButtonElement|null>
 	selectedEra: string
 	setEraDescription: (value: string) => void
+	setSelectedEra: (value: string) => void
 }
 
 /**
@@ -16,8 +19,9 @@ interface ErasProp {
  * @param setEraDescription State setter to update the era description.
  * @returns A list of timeline cards.
  */
-export default function TimelineGrid( { selectedEra, setEraDescription }: ErasProp ) {
+export default function TimelineGrid( { timelineRef, selectedEra, setEraDescription, setSelectedEra }: ErasProp ) {
 	const [data, setData] = useState([]);
+	const [navigation, setNavigation] = useState<EraNavigation | null>(null)
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const seenYears = new Set<number>()
@@ -33,7 +37,8 @@ export default function TimelineGrid( { selectedEra, setEraDescription }: ErasPr
  */
 	const cardsWithYearFlag = data.map( ( item: TimelineItem ) => {
 		const showYear = ! seenYears.has( item.year );
-		seenYears.add( item.year )
+		seenYears.add( item.year );
+
 		return {
 			...item,
 			showYear
@@ -44,7 +49,9 @@ export default function TimelineGrid( { selectedEra, setEraDescription }: ErasPr
 		fetchEra(selectedEra)
 			.then((response) => {
 				setData(response.items);
+				setNavigation(response.navigation);
 				setEraDescription(response.eraDescription);
+				timelineRef.current?.scrollIntoView({ behavior: 'smooth' });
 			})
 			.catch((err) => {
 				setError(err.message);
@@ -52,18 +59,21 @@ export default function TimelineGrid( { selectedEra, setEraDescription }: ErasPr
 			.finally(() => {
 				setLoading(false);
 			});
-	}, [setEraDescription, selectedEra]);
+	}, [selectedEra, setEraDescription, timelineRef]);
 
 	return (
-		<div className="">
+		<div>
 				{ loading && <div>Loading...</div> }
 				{ error && <div>Something went wrong: {error}</div> }
 				{ !loading && !error &&
-					<div className="grid grid-cols-3 gap-4">
-						{ cardsWithYearFlag.map((item, index) => (
-							<TimelineCard key={ index } era={ item } showYear={ item.showYear } />
-						)) }
-					</div>
+					<>
+						<div className="grid grid-cols-3 gap-x-8 gap-y-16 mb-16">
+							{ cardsWithYearFlag.map((item, index) => (
+								<TimelineCard key={ index } era={ item } showYear={ item.showYear } />
+							)) }
+						</div>
+						{ navigation && <TimelineNavigationCards navigation={ navigation } setSelectedEra={ setSelectedEra } /> }
+					</>
 				}
 		</div>
 	)

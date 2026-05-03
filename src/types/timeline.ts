@@ -22,12 +22,25 @@ export interface TimelineEra {
 	description: string
 }
 
+export interface TimelineData {
+	eras: TimelineEras[]
+}
+
+export interface EraNavigation {
+	previous: string
+	previousLabel: string
+	previousIndex: number | null
+	next: string
+	nextLabel: string
+	nextIndex: number | null
+}
+
 export interface TimelineEras {
 	era: string
 	eraDescription: string
 	items: TimelineItem[]
 }
 
-export interface TimelineData {
-	eras: TimelineEras[]
+export interface TimelineEraResponse extends TimelineEras {
+	navigation: EraNavigation
 }

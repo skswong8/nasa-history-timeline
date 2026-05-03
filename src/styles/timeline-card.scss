@@ -30,6 +30,25 @@ div.timeline-card__display-year {
 	}
 }
 
+.timeline-card__title::before {
+	content: "";
+	position: absolute;
+	top: 9px;
+	left: 1rem;
+	height: 10px;
+	width: 10px;
+	border-radius: 100%;
+	background: linear-gradient(
+		140deg,
+		var( --nasa_blue ) 0%,
+		var( --nasa_blue ) 40%,
+		var( --nasa_red ) 45%,
+		var( --nasa_red ) 55%,
+		var( --nasa_blue ) 60%,
+		var( --nasa_blue ) 100%
+	);
+}
+
 .timeline-card {
 	&[data-show-year="false"] span {
 		clip: rect( 0 0 0 0 );
@@ -54,10 +73,10 @@ div.timeline-card__display-year {
 			top: 50%;
 
 			.timeline-card:not(:last-of-type) & {
-				width: calc( 100% + 2.25rem );
+				width: calc( 100% + 2rem );
 
 				@media ( min-width: 1024px ) {
-					width: calc( 100% + 3rem );
+					width: calc( 100% + 2rem );
 				}
 			}
 
@@ -75,6 +94,6 @@ div.timeline-card__display-year {
 }
 
 .timeline-card__content {
-    background: linear-gradient( 180deg, rgba( var( --black_rgb ), 0 ) 22.14%, rgba( var( --black_rgb ), .8 ) 62.04% );
+    background: linear-gradient( 180deg, rgba( var( --black_rgb ), 0 ) 22.14%, rgba( var( --black_rgb ), 0.8 ) 62.04% );
     box-shadow: 0 0 60px 6px rgba( var( --black_rgb ), 0.3 );
 }
