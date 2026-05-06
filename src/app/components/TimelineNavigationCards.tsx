@@ -3,6 +3,7 @@
 import { EraNavigation } from '@/types/timeline';
 
 interface NavigationProps {
+	className?: string
 	navigation: EraNavigation
 	setSelectedEra: (value: string) => void
 }
@@ -13,17 +14,17 @@ interface NavigationProps {
  * @param setSelectedEra State setter to update era.
  * @returns Previous and Next navigation cards.
  */
-export default function TimelineNavigationCards( { navigation, setSelectedEra }: NavigationProps ) {
-	const { previous, next, previousIndex, nextIndex, previousLabel, nextLabel } = navigation;
+export default function TimelineNavigationCards( { className, navigation, setSelectedEra }: NavigationProps ) {
+	const { previous, next, previousLabel, nextLabel } = navigation;
 
-	const buttonClasses = 'relative flex justify-between items-center cursor-pointer text-lg text-white bg-black hover:bg-gray-950 p-4 rounded-xl border-1 w-full transition duration-250';
+	const buttonClasses = 'relative flex justify-between items-center cursor-pointer text-lg text-white bg-black hover:bg-gray-950 p-4 rounded-xl border-1 w-full transition duration-250 h-[202px] lg:h-[163px]';
 
 	return (
-		<div className="grid grid-cols-3 justify-center gap-8">
+		<div className="lg:grid grid-cols-3 justify-center gap-8 flex flex-col h-full max-lg:w-[340px]">
 			<button
-				className={ `${ buttonClasses } ${ previous === null ? 'hidden' : '' }` }
+				className={ `${ buttonClasses } ${ className } ${ previous === null ? 'hidden' : '' }` }
 				data-era={ previous }
-				onClick={ () => {
+				onClick={ e => {
 					setSelectedEra(previous);
 				} }
 			>
@@ -43,7 +44,7 @@ export default function TimelineNavigationCards( { navigation, setSelectedEra }:
 			<button
 				className={ `${ buttonClasses } col-start-3 ${ next === null ? 'hidden' : '' }` }
 				data-era={ next }
-				onClick={ () => {
+				onClick={ e => {
 					setSelectedEra(next);
 				} }
 			>

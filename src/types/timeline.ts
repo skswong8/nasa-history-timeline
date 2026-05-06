@@ -17,6 +17,11 @@ export interface TimelineItem {
 	link: TimelineLink
 }
 
+export interface TimelineItemWithYear extends TimelineItem {
+	showYear: boolean
+}
+
+
 export interface TimelineEra {
 	title: string
 	description: string

@@ -18,19 +18,28 @@ interface ErasProp {
 export default function Eras( { eras, selectedEra, setSelectedEra }: ErasProp ) {
 
 	return (
-		<ul className="flex flex-1 items-center justify-center gap-8 mb-8">
-			{ eras.map((era: TimelineEra, index: number) => (
-				<button
-					className={ `cursor-pointer text-black bg-white hover:bg-gray-200 px-4 py-2 rounded-3xl ${ selectedEra === era.title ? 'timeline-filter__item--active' : '' }` }
-					data-era={ era.title }
-					key={ index }
-					onClick={ () => {
-						setSelectedEra(era.title);
-					} }
-				>
-					<span className="">{ era.title.replace(/-/g, " - ") }</span>
-				</button>
-			)) }
-		</ul>
+		<>
+		<div className="timeline-filter">
+			<div className="timeline-filter__actions">
+				<span className="sr-only">
+					Filter Eras:
+				</span>
+				<ol className="flex flex-1 items-center justify-center gap-8 mb-8">
+					{ eras.map((era: TimelineEra, index: number) => (
+						<button
+							className={ `cursor-pointer text-white border-2 bg-black hover:bg-gray-800 transition duration-250 px-4 py-2 rounded-3xl ${ selectedEra === era.title ? 'timeline-filter__item--active' : '' }` }
+							data-era={ era.title }
+							key={ index }
+							onClick={ () => {
+								setSelectedEra(era.title);
+							} }
+						>
+							<span className="">{ era.title.replace(/-/g, " - ") }</span>
+						</button>
+					)) }
+				</ol>
+			</div>
+		</div>
+		</>
 	)
 }

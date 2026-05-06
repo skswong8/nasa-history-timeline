@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { TimelineEra } from '@/types/timeline';
 import Eras from './Eras';
-import TimelineGrid from './TimelineGrid';
+import TimelineArchive from './TimelineArchive';
 
 interface TimelineClientProps {
 	eras: TimelineEra[]
@@ -18,6 +18,8 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 	const [selectedEra, setSelectedEra] = useState<string>(eras[0].title);
 	const [eraDescription, setEraDescription] = useState<string>(eras[0].description);
 	const timelineRef = useRef(null);
+	const [erasLive, setErasLive] = useState('');
+	const [cardCountLive, setCardCountLive] = useState('');
 
 	return (
 		<main id="main">
@@ -27,8 +29,10 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 					<p className="lg:mx-32">{ eraDescription }</p>
 				</div>
 				<Eras eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } />
-				<TimelineGrid timelineRef={ timelineRef } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } setEraDescription={ setEraDescription } />
+				<TimelineArchive timelineRef={ timelineRef } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } setEraDescription={ setEraDescription } setCardCountLive={ setCardCountLive } setErasLive={ setErasLive } />
 			</div>
+			<span aria-live="assertive" className="sr-only">{ erasLive }</span>
+			<span aria-live="assertive" className="sr-only">{ cardCountLive }</span>
 		</main>
 	)
 }
