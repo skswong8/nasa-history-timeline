@@ -29,7 +29,7 @@ export default function TimelineNavigationCards( { className, navigation, setSel
 				} }
 			>
 				<span className="flex flex-col text-right">
-					<span aria-hidden="true" className="timeline-card__label">
+					<span aria-hidden="true">
 						Previous
 					</span>
 					<span className="sr-only">Previous Era</span>
@@ -49,7 +49,7 @@ export default function TimelineNavigationCards( { className, navigation, setSel
 				} }
 			>
 				<span className="flex flex-col text-left">
-					<span aria-hidden="true" className="timeline-card__label">
+					<span aria-hidden="true">
 						Next
 					</span>
 					<span className="sr-only">Next Era</span>

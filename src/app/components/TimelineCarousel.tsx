@@ -77,7 +77,7 @@ export default function TimelineCarousel( { items, navigation, setSelectedEra, s
 
 			<div className="absolute top-[calc(50%-40px)] left-4 z-[99]">
 				<button
-					className="timeline-arrow disabled:opacity-25"
+					className="cursor-pointer disabled:opacity-25"
 					disabled={isFirst}
 					onClick={() => emblaApi?.scrollPrev()}
 				>
@@ -89,13 +89,13 @@ export default function TimelineCarousel( { items, navigation, setSelectedEra, s
 				</button>
 			</div>
 
-			<div ref={emblaRef} className="timeline-content__container embla overflow-hidden">
-				<div className="timeline-cards embla__container flex gap-8">
+			<div ref={emblaRef} className="embla overflow-hidden">
+				<div className="embla__container flex gap-8">
 					{items.map((item, index) => (
 						<TimelineCard key={index} era={item} showYear={item.showYear} />
 					))}
 					{navigation && (
-						<div className="timeline-content__navigation mt-[2.5rem]">
+						<div className="mt-[2.5rem]">
 							<TimelineNavigationCards
 								className="embla__slide"
 								navigation={navigation}
@@ -114,7 +114,7 @@ export default function TimelineCarousel( { items, navigation, setSelectedEra, s
 
 			<div className="absolute top-[calc(50%-40px)] right-4 z-[99]">
 				<button
-					className="timeline-arrow disabled:opacity-25"
+					className="cursor-pointer disabled:opacity-25"
 					disabled={isLast}
 					onClick={() => emblaApi?.scrollNext()}
 				>

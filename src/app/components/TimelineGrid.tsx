@@ -25,7 +25,7 @@ export default function TimelineGrid( { items, navigation, setSelectedEra }: Gri
 					<TimelineCard key={ index } era={ item } showYear={ item.showYear } />
 				)) }
 			</div>
-			{ navigation && <div className="timeline-content__navigation">
+			{ navigation && <div>
 				<TimelineNavigationCards navigation={ navigation } setSelectedEra={ setSelectedEra } />
 			</div> }
 		</>

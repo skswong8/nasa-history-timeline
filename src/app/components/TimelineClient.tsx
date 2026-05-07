@@ -1,9 +1,12 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { TimelineEra } from '@/types/timeline';
-import Eras from './Eras';
+import TimelineErasMobile from './TimelineErasMobile';
+import TimelineErasDesktop from './TimelineErasDesktop';
 import TimelineArchive from './TimelineArchive';
+import { useWindowWidth } from '@/hooks/useWindowWidth';
+import { DESKTOP_WIDTH } from '@/lib/constants';
 
 interface TimelineClientProps {
 	eras: TimelineEra[]
@@ -20,6 +23,8 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 	const timelineRef = useRef(null);
 	const [erasLive, setErasLive] = useState('');
 	const [cardCountLive, setCardCountLive] = useState('');
+	const windowWidth = useWindowWidth();
+	const isDesktop = windowWidth !== null && windowWidth >= DESKTOP_WIDTH;
 
 	return (
 		<main id="main">
@@ -28,7 +33,9 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 					<h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">NASA History Timeline</h1>
 					<p className="lg:mx-32">{ eraDescription }</p>
 				</div>
-				<Eras eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } />
+				{ isDesktop ?
+					<TimelineErasDesktop eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } />
+				: <TimelineErasMobile eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } /> }
 				<TimelineArchive timelineRef={ timelineRef } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } setEraDescription={ setEraDescription } setCardCountLive={ setCardCountLive } setErasLive={ setErasLive } />
 			</div>
 			<span aria-live="assertive" className="sr-only">{ erasLive }</span>

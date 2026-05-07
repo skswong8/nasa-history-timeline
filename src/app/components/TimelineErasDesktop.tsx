@@ -15,12 +15,19 @@ interface ErasProp {
  * @param setSelectedEra State setter to update the currently selected era.
  * @returns A list of era buttons.
  */
-export default function Eras( { eras, selectedEra, setSelectedEra }: ErasProp ) {
+export default function TimelineErasDesktop( { eras, selectedEra, setSelectedEra }: ErasProp ) {
 
 	return (
 		<>
-		<div className="timeline-filter">
-			<div className="timeline-filter__actions">
+		<div>
+			<div>
+				<div>
+					<button disabled>
+						<span className="sr-only">
+							Previous Era
+						</span>
+					</button>
+				</div>
 				<span className="sr-only">
 					Filter Eras:
 				</span>
@@ -38,6 +45,13 @@ export default function Eras( { eras, selectedEra, setSelectedEra }: ErasProp ) 
 						</button>
 					)) }
 				</ol>
+				<div>
+					<button>
+						<span className="sr-only">
+							Next Era
+						</span>
+					</button>
+				</div>
 			</div>
 		</div>
 		</>
