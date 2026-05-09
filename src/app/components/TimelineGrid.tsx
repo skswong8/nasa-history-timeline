@@ -10,6 +10,9 @@ interface GridProps {
 	setSelectedEra: (value: string) => void
 	activeIndex: number
 	setActiveIndex: (value: number) => void
+	selectedSnap: number
+	setSelectedSnap: (value: number) => void
+	onEraChange: (index: number) => void
 }
 
 /**
@@ -33,3 +36,4 @@ export default function TimelineGrid( { items, navigation, ...rest }: GridProps 
 		</>
 	)
 }
+

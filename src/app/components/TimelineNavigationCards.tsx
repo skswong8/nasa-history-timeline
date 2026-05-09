@@ -8,6 +8,9 @@ interface NavigationProps {
 	setSelectedEra: (value: string) => void
 	activeIndex: number
 	setActiveIndex: (value: number) => void
+	selectedSnap: number
+	setSelectedSnap: (value: number) => void
+	onEraChange: (index: number) => void
 }
 
 /**
@@ -16,7 +19,7 @@ interface NavigationProps {
  * @param setSelectedEra State setter to update era.
  * @returns Previous and Next navigation cards.
  */
-export default function TimelineNavigationCards( { className, navigation, setSelectedEra, activeIndex, setActiveIndex }: NavigationProps ) {
+export default function TimelineNavigationCards( { className, navigation, setSelectedEra, activeIndex, setActiveIndex, selectedSnap, setSelectedSnap, onEraChange }: NavigationProps ) {
 	const { previous, next, previousLabel, nextLabel } = navigation;
 
 	const buttonClasses = 'relative flex justify-between items-center cursor-pointer text-lg text-white bg-black hover:bg-gray-950 p-4 rounded-xl border-1 w-full transition duration-250 h-[202px] lg:h-[163px]';
@@ -29,6 +32,8 @@ export default function TimelineNavigationCards( { className, navigation, setSel
 				onClick={ () => {
 					setSelectedEra(previous);
 					setActiveIndex( activeIndex - 1 );
+					setSelectedSnap( selectedSnap - 1 );
+					onEraChange( activeIndex - 1 );
 				} }
 			>
 				<span className="flex flex-col text-right">
@@ -50,6 +55,8 @@ export default function TimelineNavigationCards( { className, navigation, setSel
 				onClick={ () => {
 					setSelectedEra(next);
 					setActiveIndex( activeIndex + 1 );
+					setSelectedSnap( selectedSnap + 1 );
+					onEraChange( activeIndex + 1 );
 				} }
 			>
 				<span className="flex flex-col text-left">

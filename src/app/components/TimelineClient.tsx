@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { TimelineEra } from '@/types/timeline';
-import TimelineErasMobile from './TimelineErasMobile';
+import TimelineErasMobile, { TimelineErasMobileRef } from './TimelineErasMobile';
 import TimelineErasDesktop from './TimelineErasDesktop';
 import TimelineArchive from './TimelineArchive';
 import { useWindowWidth } from '@/hooks/useWindowWidth';
@@ -28,6 +28,7 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 	const [selectedSnap, setSelectedSnap] = useState(0);
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [progressWidth, setProgressWidth] = useState('0px');
+	const erasMobileRef = useRef<TimelineErasMobileRef>(null);
 
 	return (
 		<main id="main">
@@ -38,9 +39,9 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 				</div>
 				{ isDesktop ?
 					<TimelineErasDesktop eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } selectedSnap={ selectedSnap } activeIndex={ activeIndex } setActiveIndex={ setActiveIndex } progressWidth={ progressWidth } setProgressWidth={ setProgressWidth } />
-				: <TimelineErasMobile eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } selectedSnap={ selectedSnap} setSelectedSnap={ setSelectedSnap } /> }
+				: <TimelineErasMobile ref={ erasMobileRef } eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } selectedSnap={ selectedSnap } setSelectedSnap={ setSelectedSnap } /> }
 
-				<TimelineArchive timelineRef={ timelineRef } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } setEraDescription={ setEraDescription } setCardCountLive={ setCardCountLive } setErasLive={ setErasLive } activeIndex={ activeIndex } setActiveIndex={ setActiveIndex } />
+				<TimelineArchive timelineRef={ timelineRef } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } setEraDescription={ setEraDescription } setCardCountLive={ setCardCountLive } setErasLive={ setErasLive } activeIndex={ activeIndex } setActiveIndex={ setActiveIndex } selectedSnap={ selectedSnap } setSelectedSnap={ setSelectedSnap } onEraChange={(index) => erasMobileRef.current?.scrollToThumb(index)} />
 			</div>
 			<span aria-live="assertive" className="sr-only">{ erasLive }</span>
 			<span aria-live="assertive" className="sr-only">{ cardCountLive }</span>

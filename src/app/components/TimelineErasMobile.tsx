@@ -1,7 +1,7 @@
 'use client';
 
 import useEmblaCarousel from 'embla-carousel-react';
-import { useCallback } from 'react';
+import { useCallback, forwardRef, useImperativeHandle } from 'react';
 import { TimelineEra } from '@/types/timeline';
 import '@/styles/timeline-filters.scss';
 
@@ -13,6 +13,10 @@ interface ErasProp {
 	setSelectedSnap: (value: number) => void
 }
 
+export interface TimelineErasMobileRef {
+	scrollToThumb: (index: number) => void
+}
+
 /**
  * Renders the era navigation buttons for mobile.
  * @param eras Array of timeline eras.
@@ -20,7 +24,7 @@ interface ErasProp {
  * @param setSelectedEra State setter to update the currently selected era.
  * @returns A list of era buttons.
  */
-export default function TimelineErasMobile( { eras, selectedEra, setSelectedEra, selectedSnap, setSelectedSnap }: ErasProp ) {
+const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, selectedEra, selectedSnap, setSelectedSnap, setSelectedEra }, ref) => {
 	const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
 		containScroll: false,
 		watchDrag: false,
@@ -32,6 +36,12 @@ export default function TimelineErasMobile( { eras, selectedEra, setSelectedEra,
 		if (!emblaThumbsApi) return;
 		emblaThumbsApi.scrollTo(index);
 	}, [emblaThumbsApi]);
+
+	useImperativeHandle(ref, () => ({
+		scrollToThumb: (index: number) => {
+			emblaThumbsApi?.scrollTo(index);
+		}
+	}), [emblaThumbsApi]);
 
 	return (
 		<div>
@@ -97,4 +107,7 @@ export default function TimelineErasMobile( { eras, selectedEra, setSelectedEra,
 			</div>
 		</div>
 	)
-}
+})
+
+TimelineErasMobile.displayName = 'TimelineErasMobile';
+export default TimelineErasMobile;

@@ -17,6 +17,9 @@ interface ArchiveProps {
 	setErasLive: (value: string) => void
 	activeIndex: number
 	setActiveIndex: (value: number) => void
+	selectedSnap: number
+	setSelectedSnap: (value: number) => void
+	onEraChange: (index: number) => void
 }
 
 /**
