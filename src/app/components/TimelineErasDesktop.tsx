@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { TimelineEra } from '@/types/timeline';
 import '@/styles/timeline-filters.scss';
 
@@ -8,6 +8,11 @@ interface ErasProp {
 	eras: TimelineEra[]
 	selectedEra: string
 	setSelectedEra: (value: string) => void
+	selectedSnap: number
+	activeIndex: number
+	setActiveIndex: (value: number) => void
+	progressWidth: string
+	setProgressWidth: (value: string) => void
 }
 
 /**
@@ -17,10 +22,8 @@ interface ErasProp {
  * @param setSelectedEra State setter to update the currently selected era.
  * @returns A list of era buttons.
  */
-export default function TimelineErasDesktop( { eras, selectedEra, setSelectedEra }: ErasProp ) {
-	const [activeIndex, setActiveIndex] = useState(0);
+export default function TimelineErasDesktop( { eras, selectedEra, setSelectedEra, activeIndex, setActiveIndex, progressWidth, setProgressWidth }: ErasProp ) {
 	const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
-	const [progressWidth, setProgressWidth] = useState('0px');
 
 	/**
 	 * Update progress width
@@ -40,7 +43,7 @@ export default function TimelineErasDesktop( { eras, selectedEra, setSelectedEra
 		const width = activeRect.left + activeRect.width / 2;
 
 		setProgressWidth(`${width}px`);
-	}, [activeIndex]);
+	}, [activeIndex, setProgressWidth]);
 
 	// Initial calculation + resize listener
 	useEffect(() => {

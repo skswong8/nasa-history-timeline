@@ -1,7 +1,7 @@
 'use client';
 
 import useEmblaCarousel from 'embla-carousel-react';
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { TimelineEra } from '@/types/timeline';
 import '@/styles/timeline-filters.scss';
 
@@ -9,6 +9,8 @@ interface ErasProp {
 	eras: TimelineEra[]
 	selectedEra: string
 	setSelectedEra: (value: string) => void
+	selectedSnap: number
+	setSelectedSnap: (value: number) => void
 }
 
 /**
@@ -18,13 +20,12 @@ interface ErasProp {
  * @param setSelectedEra State setter to update the currently selected era.
  * @returns A list of era buttons.
  */
-export default function TimelineErasMobile( { eras, selectedEra, setSelectedEra }: ErasProp ) {
+export default function TimelineErasMobile( { eras, selectedEra, setSelectedEra, selectedSnap, setSelectedSnap }: ErasProp ) {
 	const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
 		containScroll: false,
 		watchDrag: false,
 	});
 
-	const [selectedSnap, setSelectedSnap] = useState(0);
 	const snapCount = eras.length - 1;
 
 	const onThumbClick = useCallback((index: number) => {

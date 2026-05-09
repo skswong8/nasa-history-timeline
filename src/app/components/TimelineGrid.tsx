@@ -8,6 +8,8 @@ interface GridProps {
 	items: TimelineItemWithYear[]
 	navigation: EraNavigation|null
 	setSelectedEra: (value: string) => void
+	activeIndex: number
+	setActiveIndex: (value: number) => void
 }
 
 /**
@@ -17,7 +19,7 @@ interface GridProps {
  * @param setSelectedEra State setter to update the selected era.
  * @returns A grid of timeline cards and navigation.
  */
-export default function TimelineGrid( { items, navigation, setSelectedEra }: GridProps ) {
+export default function TimelineGrid( { items, navigation, ...rest }: GridProps ) {
 	return (
 		<>
 			<div className="grid grid-cols-3 gap-x-8 gap-y-16 mb-16">
@@ -26,7 +28,7 @@ export default function TimelineGrid( { items, navigation, setSelectedEra }: Gri
 				)) }
 			</div>
 			{ navigation && <div>
-				<TimelineNavigationCards navigation={ navigation } setSelectedEra={ setSelectedEra } />
+				<TimelineNavigationCards navigation={ navigation } { ...rest } />
 			</div> }
 		</>
 	)

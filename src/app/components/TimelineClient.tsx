@@ -25,6 +25,9 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 	const [cardCountLive, setCardCountLive] = useState('');
 	const windowWidth = useWindowWidth();
 	const isDesktop = windowWidth !== null && windowWidth >= DESKTOP_WIDTH;
+	const [selectedSnap, setSelectedSnap] = useState(0);
+	const [activeIndex, setActiveIndex] = useState(0);
+	const [progressWidth, setProgressWidth] = useState('0px');
 
 	return (
 		<main id="main">
@@ -34,9 +37,10 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 					<p className="lg:mx-32">{ eraDescription }</p>
 				</div>
 				{ isDesktop ?
-					<TimelineErasDesktop eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } />
-				: <TimelineErasMobile eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } /> }
-				<TimelineArchive timelineRef={ timelineRef } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } setEraDescription={ setEraDescription } setCardCountLive={ setCardCountLive } setErasLive={ setErasLive } />
+					<TimelineErasDesktop eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } selectedSnap={ selectedSnap } activeIndex={ activeIndex } setActiveIndex={ setActiveIndex } progressWidth={ progressWidth } setProgressWidth={ setProgressWidth } />
+				: <TimelineErasMobile eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } selectedSnap={ selectedSnap} setSelectedSnap={ setSelectedSnap } /> }
+
+				<TimelineArchive timelineRef={ timelineRef } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } setEraDescription={ setEraDescription } setCardCountLive={ setCardCountLive } setErasLive={ setErasLive } activeIndex={ activeIndex } setActiveIndex={ setActiveIndex } />
 			</div>
 			<span aria-live="assertive" className="sr-only">{ erasLive }</span>
 			<span aria-live="assertive" className="sr-only">{ cardCountLive }</span>

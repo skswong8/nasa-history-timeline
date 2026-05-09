@@ -12,6 +12,8 @@ interface CarouselProps {
 	navigation: EraNavigation | null
 	setSelectedEra: (value: string) => void
 	setCardCountLive: (value: string) => void
+	activeIndex: number
+	setActiveIndex: (value: number) => void
 }
 
 /**
@@ -23,7 +25,7 @@ interface CarouselProps {
  * @param setCardCountLive - State setter to update the accessible live region with the current card count.
  * @returns A carousel of timeline cards with previous and next slide controls.
  */
-export default function TimelineCarousel( { items, navigation, setSelectedEra, setCardCountLive }: CarouselProps ) {
+export default function TimelineCarousel( { items, navigation, setSelectedEra, setCardCountLive, ...rest }: CarouselProps ) {
 	const [emblaRef, emblaApi] = useEmblaCarousel({ containScroll: false });
 	const [selectedSnap, setSelectedSnap] = useState(0);
 	const [snapCount, setSnapCount] = useState(0);
@@ -100,6 +102,7 @@ export default function TimelineCarousel( { items, navigation, setSelectedEra, s
 								className="embla__slide"
 								navigation={navigation}
 								setSelectedEra={setSelectedEra}
+								{ ...rest }
 							/>
 						</div>
 					)}

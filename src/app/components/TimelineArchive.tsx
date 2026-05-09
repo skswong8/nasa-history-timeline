@@ -15,6 +15,8 @@ interface ArchiveProps {
 	setSelectedEra: (value: string) => void
 	setCardCountLive: (value: string) => void
 	setErasLive: (value: string) => void
+	activeIndex: number
+	setActiveIndex: (value: number) => void
 }
 
 /**
@@ -25,7 +27,7 @@ interface ArchiveProps {
  * @param setSelectedEra State setter to update the selected era.
  * @returns A list of timeline cards.
  */
-export default function TimelineArchive( { timelineRef, selectedEra, setEraDescription, setSelectedEra, setCardCountLive, setErasLive }: ArchiveProps ) {
+export default function TimelineArchive( { timelineRef, selectedEra, setEraDescription, setCardCountLive, setErasLive, ...rest }: ArchiveProps ) {
 	const [data, setData] = useState([]);
 	const [navigation, setNavigation] = useState<EraNavigation | null>(null)
 	const [loading, setLoading] = useState(true);
@@ -76,8 +78,8 @@ export default function TimelineArchive( { timelineRef, selectedEra, setEraDescr
 	return (
 		<div>
 			{ isDesktop ?
-				<TimelineGrid items={ items } navigation={ navigation } setSelectedEra={ setSelectedEra } />
-			: <TimelineCarousel items={ items } navigation={ navigation } setSelectedEra={ setSelectedEra } setCardCountLive={ setCardCountLive } /> }
+				<TimelineGrid items={ items } navigation={ navigation } { ...rest } />
+			: <TimelineCarousel items={ items } navigation={ navigation } setCardCountLive={ setCardCountLive } { ...rest } /> }
 		</div>
 	)
 }
