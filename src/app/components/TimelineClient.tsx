@@ -39,7 +39,7 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 				</div>
 				{ isDesktop ?
 					<TimelineErasDesktop eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } selectedSnap={ selectedSnap } activeIndex={ activeIndex } setActiveIndex={ setActiveIndex } progressWidth={ progressWidth } setProgressWidth={ setProgressWidth } />
-				: <TimelineErasMobile ref={ erasMobileRef } eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } selectedSnap={ selectedSnap } setSelectedSnap={ setSelectedSnap } /> }
+				: <TimelineErasMobile ref={ erasMobileRef } eras={ eras } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } selectedSnap={ selectedSnap } setSelectedSnap={ setSelectedSnap } activeIndex={ activeIndex } setActiveIndex={ setActiveIndex } /> }
 
 				<TimelineArchive timelineRef={ timelineRef } selectedEra={ selectedEra } setSelectedEra={ setSelectedEra } setEraDescription={ setEraDescription } setCardCountLive={ setCardCountLive } setErasLive={ setErasLive } activeIndex={ activeIndex } setActiveIndex={ setActiveIndex } selectedSnap={ selectedSnap } setSelectedSnap={ setSelectedSnap } onEraChange={(index) => erasMobileRef.current?.scrollToThumb(index)} />
 			</div>

@@ -11,6 +11,8 @@ interface ErasProp {
 	setSelectedEra: (value: string) => void
 	selectedSnap: number
 	setSelectedSnap: (value: number) => void
+	activeIndex: number
+	setActiveIndex: (value: number) => void
 }
 
 export interface TimelineErasMobileRef {
@@ -24,7 +26,7 @@ export interface TimelineErasMobileRef {
  * @param setSelectedEra State setter to update the currently selected era.
  * @returns A list of era buttons.
  */
-const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, selectedEra, selectedSnap, setSelectedSnap, setSelectedEra }, ref) => {
+const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, selectedEra, selectedSnap, setSelectedSnap, setSelectedEra, activeIndex, setActiveIndex }, ref) => {
 	const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
 		containScroll: false,
 		watchDrag: false,
@@ -49,7 +51,7 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 				<div className="absolute left-[-2rem] top-[-5px] z-99 w-[80px] h-[50px] flex align-center justify-center bg-[linear-gradient(to_left,rgba(10,10,10,0)_0%,rgba(10,10,10,1)_50%)]">
 					<button
 						className="cursor-pointer disabled:opacity-25"
-						disabled={ selectedSnap + 1 <= 1 }
+						disabled={ activeIndex + 1 <= 1 }
 						onClick={() => {
 							const prevIndex = selectedSnap - 1;
 							const prevEra = eras[prevIndex]?.title;
@@ -57,6 +59,7 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 							setSelectedSnap( prevIndex );
 							setSelectedEra( prevEra );
 							onThumbClick( prevIndex );
+							setActiveIndex( activeIndex - 1 );
 						}}
 					>
 						<svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" fill="white">
@@ -76,6 +79,7 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 									onClick={() => {
 										setSelectedEra( era.title );
 										onThumbClick( index );
+										setActiveIndex( index );
 									}}
 								>
 									<span>{era.title.replace(/-/g, ' - ')}</span>
@@ -88,7 +92,7 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 				<div className="absolute right-[-2rem] top-[-5px] z-99 w-[80px] h-[50px] flex align-center justify-center bg-[linear-gradient(to_right,rgba(10,10,10,0)_0%,rgba(10,10,10,1)_50%)]">
 					<button
 						className="cursor-pointer disabled:opacity-25"
-						disabled={ selectedSnap >= snapCount }
+						disabled={ activeIndex >= snapCount }
 						onClick={() => {
 							const nextIndex = selectedSnap + 1;
 							const nextEra = eras[nextIndex]?.title;
@@ -96,6 +100,7 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 							setSelectedSnap( nextIndex );
 							setSelectedEra( nextEra );
 							onThumbClick( nextIndex );
+							setActiveIndex( activeIndex + 1 );
 						}}
 					>
 						<svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" fill="white">
