@@ -1,36 +1,164 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NASA History Timeline
+
+An interactive timeline of NASA's history from 1958 to present, built with Next.js 16, TypeScript, and Tailwind CSS. Browse over 35 key missions and milestones organised by era, with official NASA imagery sourced from the NASA Images API.
+
+---
+
+## Features
+
+- **Era navigation** — browse missions grouped into five historical eras, from the Space Race through to the Artemis programme
+- **Mock REST API** — timeline data is served via Next.js route handlers (`/api/timeline`), mimicking a real backend API
+- **Server-side rendering** — era data is fetched on the server and passed to client components, with no loading delay on first paint
+- **Responsive layout** — desktop shows a card grid; mobile uses an Embla carousel with swipe support and arrow navigation
+- **Previous / next era navigation** — computed server-side and returned alongside each era's data
+- **Year grouping** — a year label appears above the first card of each year group, computed at render time
+- **Accessible** — screen reader live region announces the current card position in the mobile carousel; external links include visually hidden "opens in a new tab" text
+- **Official NASA imagery** — all photos sourced from the NASA Images API and hosted locally
+
+---
+
+## Tech Stack
+
+| | |
+|---|---|
+| Framework | [Next.js 16](https://nextjs.org) (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS 4 + SCSS |
+| Carousel | [Embla Carousel](https://www.embla-carousel.com) |
+| Images | NASA Images API + `next/image` |
+
+---
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── api/
+│   │   └── timeline/
+│   │       ├── route.ts        # GET /api/timeline — returns all eras or a single era by query param
+│   │       └── eras/
+│   │           └── route.ts    # GET /api/timeline/eras — returns a flat array of era label strings
+│   ├── components/
+│   │   ├── ArchiveList.tsx     # Card grid — fetches and renders items for the selected era
+│   │   ├── Eras.tsx            # Desktop era buttons
+│   │   ├── TimelineCard.tsx    # Individual mission card
+│   │   ├── TimelineCarousel.tsx        # Mobile Embla carousel
+│   │   ├── TimelineClient.tsx          # Client boundary — owns selectedEra state
+│   │   ├── TimelineErasMobile.tsx      # Mobile era filter carousel
+│   │   └── TimelineNavigationCards.tsx # Previous / next era buttons
+│   ├── services/
+│   │   └── api.ts              # Fetch helpers for the timeline API
+│   └── page.tsx                # Server component — reads data and passes to TimelineClient
+├── data/
+│   └── nasa-timeline.json      # Timeline data with image paths, tags, and optional article links
+├── lib/
+│   └── timeline.ts             # Shared data access — reads the JSON file
+├── public/
+│   └── nasa-images/            # Locally hosted NASA images
+├── styles/                     # Global and component SCSS
+└── types/
+    └── timeline.ts             # TypeScript interfaces for all data shapes
+```
+
+---
+
+## API
+
+The timeline data is exposed across two route handlers.
+
+### `GET /api/timeline/eras`
+
+Returns an array of era objects containing the title and description, used to render the era navigation buttons and descriptions.
+
+```json
+[
+  {
+    "title": "1958-1970",
+    "description": "NASA's founding and the intense Space Race era..."
+  },
+  {
+    "title": "1971-1990",
+    "description": "Post-Apollo transition to reusable spacecraft..."
+  }
+]
+```
+
+### `GET /api/timeline`
+
+Returns the full dataset including all eras and items.
+
+### `GET /api/timeline?era=1958-1970`
+
+Returns a single era's `eraDescription`, `items`, and computed `navigation`:
+
+```json
+{
+  "era": "1958-1970",
+  "eraDescription": "...",
+  "items": [...],
+  "navigation": {
+    "previous": null,
+    "previousLabel": null,
+    "previousIndex": null,
+    "next": "1971-1990",
+    "nextLabel": "1971-1990",
+    "nextIndex": 1
+  }
+}
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/skswong8/nasa-history-timeline.git
+cd nasa-history-timeline
+npm install
+```
+
+### Environment
+
+Create a `.env.local` file in the project root:
+
+```
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can verify the API is working by visiting [http://localhost:3000/api/timeline](http://localhost:3000/api/timeline) directly.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Build
 
-## Learn More
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Code Style
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Tabs for indentation (configured via `.editorconfig` and `.prettierrc`)
+- Single quotes
+- No semicolons
+- Format on save via Prettier
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx prettier --write .
+```
