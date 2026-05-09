@@ -64,13 +64,13 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 						className="cursor-pointer disabled:opacity-25"
 						disabled={ activeIndex + 1 <= 1 }
 						onClick={() => {
-							const prevIndex = selectedSnap - 1;
+							const prevIndex = activeIndex - 1;
 							const prevEra = eras[prevIndex]?.title;
 							if ( ! prevEra ) return;
-							setSelectedSnap( prevIndex );
 							setSelectedEra( prevEra );
+							setSelectedSnap( prevIndex );
+							setActiveIndex( prevIndex );
 							onThumbClick( prevIndex );
-							setActiveIndex( activeIndex - 1 );
 						}}
 					>
 						<svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" fill="white">
@@ -115,13 +115,13 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 						className="cursor-pointer disabled:opacity-25"
 						disabled={ activeIndex >= snapCount }
 						onClick={() => {
-							const nextIndex = selectedSnap + 1;
+							const nextIndex = activeIndex + 1;
 							const nextEra = eras[nextIndex]?.title;
 							if ( ! nextEra ) return;
-							setSelectedSnap( nextIndex );
 							setSelectedEra( nextEra );
+							setSelectedSnap( nextIndex );
+							setActiveIndex( nextIndex );
 							onThumbClick( nextIndex );
-							setActiveIndex( activeIndex + 1 );
 						}}
 					>
 						<svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" fill="white">
