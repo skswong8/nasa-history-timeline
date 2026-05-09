@@ -1,7 +1,7 @@
 'use client';
 
 import useEmblaCarousel from 'embla-carousel-react';
-import { useCallback, forwardRef, useImperativeHandle } from 'react';
+import { useRef, useCallback, forwardRef, useImperativeHandle } from 'react';
 import { TimelineEra } from '@/types/timeline';
 import '@/styles/timeline-filters.scss';
 
@@ -27,6 +27,7 @@ export interface TimelineErasMobileRef {
  * @returns A list of era buttons.
  */
 const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, selectedEra, selectedSnap, setSelectedSnap, setSelectedEra, activeIndex, setActiveIndex }, ref) => {
+	const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
 	const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
 		containScroll: false,
 		watchDrag: false,
@@ -48,6 +49,16 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 	return (
 		<div>
 			<div className="flex relative">
+				<div className="relative w-screen min-w-screen left-1/2 right-1/2 mx-[-50vw] bg-nasa-blue h-[5px] bottom-[-66px]">
+				<div
+					className="relative top-0 left-0 h-full bg-nasa-red transition-all duration-700 ease-out flex items-center pr-2"
+					style={{
+						width: '50%',
+					}}
+				>
+					<span className="text-4xl transition-transform duration-700 absolute right-[-14px] z-999 rotate-45">🚀</span>
+				</div>
+			</div>
 				<div className="absolute left-[-2rem] top-[-5px] z-99 w-[80px] h-[50px] flex align-center justify-center bg-[linear-gradient(to_left,rgba(10,10,10,0)_0%,rgba(10,10,10,1)_50%)]">
 					<button
 						className="cursor-pointer disabled:opacity-25"
@@ -70,22 +81,32 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 				</div>
 				<span className="sr-only">Filter Eras:</span>
 
-				<div ref={emblaThumbsRef} className="overflow-hidden">
+				<div ref={ emblaThumbsRef } className="overflow-hidden w-screen">
 					<ol className="embla__container flex gap-8 mb-8">
-						{eras.map((era: TimelineEra, index: number) => (
-							<li key={index} className="embla__slide flex-[0_0_auto]">
-								<button
-									className={`cursor-pointer text-white border-2 bg-black hover:bg-gray-800 transition duration-250 px-4 py-2 rounded-3xl ${selectedEra === era.title ? 'timeline-filter__item--active' : ''}`}
-									onClick={() => {
-										setSelectedEra( era.title );
-										onThumbClick( index );
-										setActiveIndex( index );
-									}}
-								>
-									<span>{era.title.replace(/-/g, ' - ')}</span>
-								</button>
-							</li>
-						))}
+						{eras.map((era: TimelineEra, index: number) => {
+							const isActive = index === activeIndex;
+
+							return (
+								<li key={index} className="embla__slide flex-[0_0_auto] flex flex-col items-center">
+									<button
+										className={`cursor-pointer text-white border-2 bg-black hover:bg-gray-800 transition duration-250 px-4 py-2 rounded-3xl ${selectedEra === era.title ? 'timeline-filter__item--active' : ''}`}
+										onClick={() => {
+											setSelectedEra( era.title );
+											onThumbClick( index );
+											setActiveIndex( index );
+										}}
+									>
+										<span>{era.title.replace(/-/g, ' - ')}</span>
+									</button>
+									<div
+										ref={(el) => { dotRefs.current[index] = el; }}
+										onClick={() => setActiveIndex(index)}
+										className={`mt-4 w-4 h-4 rounded-full cursor-pointer transition-all duration-300 flex items-center justify-center shadow-sm z-20 ${isActive ? 'bg-nasa-red' : 'bg-gray-600'}`}
+									>
+									</div>
+								</li>
+							)
+						})}
 					</ol>
 				</div>
 
@@ -110,6 +131,7 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 					</button>
 				</div>
 			</div>
+
 		</div>
 	)
 })

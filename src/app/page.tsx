@@ -14,7 +14,7 @@ export default async function Home() {
 	return (
 		<>
 			<header>
-				<div className="container mx-auto p-4">
+				<div className="lg:container mx-auto p-4">
 					<Image
 						src="/nasa-logo.svg"
 						alt="NASA logo"

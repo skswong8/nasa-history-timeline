@@ -32,7 +32,7 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 
 	return (
 		<main id="main">
-			<div className="timeline container mx-auto p-4 mb-60" ref={ timelineRef }>
+			<div className="timeline lg:container mx-auto p-4 mb-60" ref={ timelineRef }>
 				<div className="flex flex-col items-center gap-6 text-center mb-16">
 					<h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">NASA History Timeline</h1>
 					<p className="lg:mx-32">{ eraDescription }</p>
