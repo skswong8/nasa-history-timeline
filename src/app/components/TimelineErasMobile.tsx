@@ -92,8 +92,9 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(({ eras, 
 										className={`cursor-pointer text-white border-2 bg-black hover:bg-gray-800 transition duration-250 px-4 py-2 rounded-3xl ${selectedEra === era.title ? 'timeline-filter__item--active' : ''}`}
 										onClick={() => {
 											setSelectedEra( era.title );
-											onThumbClick( index );
+											setSelectedSnap( index );
 											setActiveIndex( index );
+											onThumbClick( index );
 										}}
 									>
 										<span>{era.title.replace(/-/g, ' - ')}</span>
