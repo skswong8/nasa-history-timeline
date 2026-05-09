@@ -3,20 +3,20 @@
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
-	--nasa_blue: #0B3D91;
+	--nasa_blue: #0b3d91;
 	--nasa_blue_rgb: 11, 61, 145;
-	--nasa_red: #FC3D21;
+	--nasa_red: #fc3d21;
 	--nasa_red_rgb: 252, 61, 33;
 	--white: #fff;
 	--white_rgb: 255, 255, 255;
-	--black: #0E0E0E;
+	--black: #0e0e0e;
 	--black_rgb: 14, 14, 14;
 }
 
 @theme {
-  --color-black: var( --black );
-	--color-nasa-blue: var( --nasa_blue );
-	--color-nasa-red: var( --nasa_red );
+	--color-black: var(--black);
+	--color-nasa-blue: var(--nasa_blue);
+	--color-nasa-red: var(--nasa_red);
 }
 
 @theme inline {

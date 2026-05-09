@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	title: 'NASA History Timeline',
-	description: 'A timeline outlining NASA\'s history since inception',
+	description: "A timeline outlining NASA's history since inception",
 }
 
 export default function RootLayout({

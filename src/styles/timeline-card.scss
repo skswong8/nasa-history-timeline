@@ -1,24 +1,24 @@
 .timeline-card__tag {
-	background: var( --nasa_blue );
+	background: var(--nasa_blue);
 }
 
 div.timeline-card__display-year {
-	text-shadow: 0 0 4px rgba( var( --black_rgb ), 0.25 );
+	text-shadow: 0 0 4px rgba(var(--black_rgb), 0.25);
 }
 
 .timeline-button {
 	a {
-		background-color: var( --nasa_red );
+		background-color: var(--nasa_red);
 
 		&:hover,
 		&:focus {
-			background-color: rgba( var( --nasa_red_rgb ), 0.75 );
+			background-color: rgba(var(--nasa_red_rgb), 0.75);
 		}
 	}
 }
 
 .timeline-card__title::before {
-	content: "";
+	content: '';
 	position: absolute;
 	top: 9px;
 	left: 1rem;
@@ -27,19 +27,19 @@ div.timeline-card__display-year {
 	border-radius: 100%;
 	background: linear-gradient(
 		140deg,
-		var( --nasa_blue ) 0%,
-		var( --nasa_blue ) 40%,
-		var( --nasa_red ) 45%,
-		var( --nasa_red ) 55%,
-		var( --nasa_blue ) 60%,
-		var( --nasa_blue ) 100%
+		var(--nasa_blue) 0%,
+		var(--nasa_blue) 40%,
+		var(--nasa_red) 45%,
+		var(--nasa_red) 55%,
+		var(--nasa_blue) 60%,
+		var(--nasa_blue) 100%
 	);
 }
 
 .timeline-card {
-	&[data-show-year="false"] span {
-		clip: rect( 0 0 0 0 );
-		clip-path: inset( 50% );
+	&[data-show-year='false'] span {
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
 		height: 1px;
 		width: 1px;
 		overflow: hidden;
@@ -51,8 +51,8 @@ div.timeline-card__display-year {
 		position: relative;
 
 		&::before {
-			content: "";
-			background-color: rgba( var( --white_rgb ), 0.3 );
+			content: '';
+			background-color: rgba(var(--white_rgb), 0.3);
 			width: 100%;
 			height: 1px;
 			position: absolute;
@@ -60,27 +60,31 @@ div.timeline-card__display-year {
 			top: 50%;
 
 			.timeline-card:not(:last-of-type) & {
-				width: calc( 100% + 2rem );
+				width: calc(100% + 2rem);
 
-				@media ( min-width: 1024px ) {
-					width: calc( 100% + 2rem );
+				@media (min-width: 1024px) {
+					width: calc(100% + 2rem);
 				}
 			}
 
 			.timeline-card:nth-child(3n) & {
-				@media ( min-width: 1024px ) {
+				@media (min-width: 1024px) {
 					width: 100%;
 				}
 			}
 		}
 	}
 
-	a[target="_blank"]::after {
-		color: var( --white );
+	a[target='_blank']::after {
+		color: var(--white);
 	}
 }
 
 .timeline-card__content {
-    background: linear-gradient( 180deg, rgba( var( --black_rgb ), 0 ) 22.14%, rgba( var( --black_rgb ), 0.8 ) 62.04% );
-    box-shadow: 0 0 60px 6px rgba( var( --black_rgb ), 0.3 );
+	background: linear-gradient(
+		180deg,
+		rgba(var(--black_rgb), 0) 22.14%,
+		rgba(var(--black_rgb), 0.8) 62.04%
+	);
+	box-shadow: 0 0 60px 6px rgba(var(--black_rgb), 0.3);
 }

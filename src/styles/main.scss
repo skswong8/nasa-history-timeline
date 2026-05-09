@@ -1,5 +1,5 @@
-a[target=_blank]::after {
-	content: "";
+a[target='_blank']::after {
+	content: '';
 	display: inline-block;
 	vertical-align: middle;
 	width: 1rem;
