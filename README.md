@@ -1,5 +1,7 @@
 # NASA History Timeline
 
+<img width="1987" height="2271" alt="nasa-history-timeline" src="https://github.com/user-attachments/assets/eded61a3-074d-44e4-97b5-2c5c23a3de56" />
+
 An interactive timeline of NASA's history from 1958 to present, built with Next.js 16, TypeScript, and Tailwind CSS. Browse over 35 key missions and milestones organised by era, with official NASA imagery sourced from the NASA Images API.
 
 ---
