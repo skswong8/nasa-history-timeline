@@ -21,10 +21,8 @@ const getPreviousAndNext = (
 	return {
 		previous: previous?.era ?? null,
 		previousLabel: previous?.era.replace(/-/g, ' - ') ?? null,
-		previousIndex: currentIndex - 1 >= 0 ? currentIndex - 1 : null,
 		next: next?.era ?? null,
 		nextLabel: next?.era.replace(/-/g, ' - ') ?? null,
-		nextIndex: currentIndex + 1 < eras.length ? currentIndex + 1 : null,
 	}
 }
 

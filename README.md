@@ -102,10 +102,8 @@ Returns a single era's `eraDescription`, `items`, and computed `navigation`:
   "navigation": {
     "previous": null,
     "previousLabel": null,
-    "previousIndex": null,
     "next": "1971-1990",
-    "nextLabel": "1971-1990",
-    "nextIndex": 1
+    "nextLabel": "1971 - 1990",
   }
 }
 ```
