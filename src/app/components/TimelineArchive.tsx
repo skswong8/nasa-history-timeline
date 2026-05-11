@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from 'react'
 import { fetchEra } from '../services/api'
-import { TimelineItem, EraNavigation } from '@/types/timeline'
+import { EraNavigation } from '@/types/timeline'
 import TimelineGrid from './TimelineGrid'
 import TimelineCarousel from './TimelineCarousel'
 import { useWindowWidth } from '@/hooks/useWindowWidth'
 import { DESKTOP_WIDTH } from '@/lib/constants'
+import { cardsWithYearFlag } from '@/utils/cardsWithYearFlag'
 
 interface ArchiveProps {
 	timelineRef: React.RefObject<HTMLButtonElement | null>
@@ -42,28 +43,10 @@ export default function TimelineArchive({
 	const [navigation, setNavigation] = useState<EraNavigation | null>(null)
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(null)
-	const seenYears = new Set<number>()
 	const windowWidth = useWindowWidth()
 	const isDesktop = windowWidth !== null && windowWidth >= DESKTOP_WIDTH
 
-	/**
-	 * Computes a flag for each timeline item indicating whether its year
-	 * should be displayed, used to render a year label above the first
-	 * card of each year group.
-	 *
-	 * @param data Array of timeline items.
-	 * @returns A new array of timeline items extended with a `showYear` boolean,
-	 * which is `true` only for the first item of each unique year.
-	 */
-	const items = data.map((item: TimelineItem) => {
-		const showYear = !seenYears.has(item.year)
-		seenYears.add(item.year)
-
-		return {
-			...item,
-			showYear,
-		}
-	})
+	const items = cardsWithYearFlag(data)
 
 	useEffect(() => {
 		fetchEra(selectedEra)
