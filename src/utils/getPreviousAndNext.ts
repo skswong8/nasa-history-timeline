@@ -13,6 +13,15 @@ export function getPreviousAndNext(
 ): EraNavigation {
 	const currentIndex = eras.findIndex((era) => era.era === currentEra)
 
+	if (currentIndex === -1) {
+		return {
+			previous: null,
+			previousLabel: null,
+			next: null,
+			nextLabel: null,
+		}
+	}
+
 	const previous = eras[currentIndex - 1] ?? null
 	const next = eras[currentIndex + 1] ?? null
 

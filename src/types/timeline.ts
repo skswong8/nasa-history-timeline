@@ -31,10 +31,10 @@ export interface TimelineData {
 }
 
 export interface EraNavigation {
-	previous: string
-	previousLabel: string
-	next: string
-	nextLabel: string
+	previous: string|null
+	previousLabel: string|null
+	next: string|null
+	nextLabel: string|null
 }
 
 export interface TimelineEras {
