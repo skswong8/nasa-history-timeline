@@ -14,7 +14,7 @@ export interface TimelineItem {
 	description: string
 	tag: string
 	image: TimelineImage
-	link: TimelineLink
+	link?: TimelineLink
 }
 
 export interface TimelineItemWithYear extends TimelineItem {
