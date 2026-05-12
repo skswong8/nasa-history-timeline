@@ -40,7 +40,7 @@ export default function TimelineNavigationCards({
 				className={`${buttonClasses} ${className} ${previous === null ? 'hidden' : ''}`}
 				data-era={previous}
 				onClick={() => {
-					setSelectedEra(previous)
+					if (previous) setSelectedEra(previous)
 					setActiveIndex(activeIndex - 1)
 					setSelectedSnap(selectedSnap - 1)
 					onEraChange(activeIndex - 1)
@@ -75,7 +75,7 @@ export default function TimelineNavigationCards({
 				className={`${buttonClasses} col-start-3 ${next === null ? 'hidden' : ''}`}
 				data-era={next}
 				onClick={() => {
-					setSelectedEra(next)
+					if (next) setSelectedEra(next)
 					setActiveIndex(activeIndex + 1)
 					setSelectedSnap(selectedSnap + 1)
 					onEraChange(activeIndex + 1)

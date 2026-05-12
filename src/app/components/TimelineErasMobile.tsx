@@ -2,11 +2,11 @@
 
 import useEmblaCarousel from 'embla-carousel-react'
 import { useRef, useCallback, forwardRef, useImperativeHandle } from 'react'
-import { TimelineEra } from '@/types/timeline'
+import { TimelineNavigation } from '@/types/timeline'
 import '@/styles/timeline-filters.scss'
 
 interface ErasProp {
-	eras: TimelineEra[]
+	eras: TimelineNavigation[]
 	selectedEra: string
 	setSelectedEra: (value: string) => void
 	selectedSnap: number
@@ -117,7 +117,7 @@ const TimelineErasMobile = forwardRef<TimelineErasMobileRef, ErasProp>(
 
 					<div ref={emblaThumbsRef} className="overflow-hidden w-screen">
 						<ol className="embla__container flex gap-8 mb-8">
-							{eras.map((era: TimelineEra, index: number) => {
+							{eras.map((era: TimelineNavigation, index: number) => {
 								const isActive = index === activeIndex
 
 								return (

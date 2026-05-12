@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { TimelineEra } from '@/types/timeline'
+import { TimelineNavigation } from '@/types/timeline'
 import TimelineErasMobile, { TimelineErasMobileRef } from './TimelineErasMobile'
 import TimelineErasDesktop from './TimelineErasDesktop'
 import TimelineArchive from './TimelineArchive'
@@ -9,7 +9,7 @@ import { useWindowWidth } from '@/hooks/useWindowWidth'
 import { DESKTOP_WIDTH } from '@/lib/constants'
 
 interface TimelineClientProps {
-	eras: TimelineEra[]
+	eras: TimelineNavigation[]
 }
 
 /**

@@ -21,7 +21,7 @@ export interface TimelineItemWithYear extends TimelineItem {
 	showYear: boolean
 }
 
-export interface TimelineEra {
+export interface TimelineNavigation {
 	title: string
 	description: string
 }

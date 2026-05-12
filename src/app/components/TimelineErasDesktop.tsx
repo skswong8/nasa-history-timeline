@@ -1,11 +1,11 @@
 'use client'
 
 import { useRef, useEffect, useCallback } from 'react'
-import { TimelineEra } from '@/types/timeline'
+import { TimelineNavigation } from '@/types/timeline'
 import '@/styles/timeline-filters.scss'
 
 interface ErasProp {
-	eras: TimelineEra[]
+	eras: TimelineNavigation[]
 	selectedEra: string
 	setSelectedEra: (value: string) => void
 	selectedSnap: number
