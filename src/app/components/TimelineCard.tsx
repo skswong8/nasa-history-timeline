@@ -31,7 +31,7 @@ export default function TimelineCard({ era, showYear }: CardProps) {
 		>
 			<div className="timeline-card__wrapper">
 				<div className="timeline-card__year h-[24px] relative mb-4">
-					<span className="rounded-full bg-white text-black inline-block px-[6px] py-[2px] relative z-[1]">
+					<span className="rounded-full bg-white text-black inline-block px-[6px] py-[2px] relative z-[1]" data-testid="card-year">
 						{year}
 					</span>
 				</div>
