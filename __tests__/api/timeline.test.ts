@@ -3,12 +3,14 @@ import { getPreviousAndNext } from '@/utils/getPreviousAndNext'
 import { mockTimelineEras } from '../mocks/timelineEras'
 
 jest.mock('@/lib/timeline', () => ({
-	getTimelineData: jest.fn()
+	getTimelineData: jest.fn(),
 }))
 
 describe('Timeline API logic', () => {
 	beforeEach(() => {
-		(getTimelineData as jest.Mock).mockResolvedValue({ eras: mockTimelineEras })
+		;(getTimelineData as jest.Mock).mockResolvedValue({
+			eras: mockTimelineEras,
+		})
 	})
 
 	it('should return all era data', async () => {

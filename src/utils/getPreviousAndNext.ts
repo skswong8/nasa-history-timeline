@@ -1,4 +1,4 @@
-import { TimelineEras, EraNavigation } from "@/types/timeline"
+import { TimelineEras, EraNavigation } from '@/types/timeline'
 
 /**
  * Get previous and next era navigation items.

@@ -6,7 +6,7 @@ import { getEras } from '@/utils/getEras'
 export async function GET() {
 	const data: TimelineData = await getTimelineData()
 
-	const eras = getEras( data )
+	const eras = getEras(data)
 
 	return NextResponse.json(eras)
 }

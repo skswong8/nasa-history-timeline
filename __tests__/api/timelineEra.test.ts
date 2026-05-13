@@ -3,12 +3,14 @@ import { mockTimelineEras } from '../mocks/timelineEras'
 import { getEras } from '@/utils/getEras'
 
 jest.mock('@/lib/timeline', () => ({
-	getTimelineData: jest.fn()
+	getTimelineData: jest.fn(),
 }))
 
 describe('Timeline Era API logic', () => {
 	beforeEach(() => {
-		(getTimelineData as jest.Mock).mockResolvedValue({ eras: mockTimelineEras })
+		;(getTimelineData as jest.Mock).mockResolvedValue({
+			eras: mockTimelineEras,
+		})
 	})
 
 	it('should return all eras', async () => {
@@ -29,7 +31,7 @@ describe('Timeline Era API logic', () => {
 	})
 
 	it('should return an empty array when there are no eras', async () => {
-		(getTimelineData as jest.Mock).mockResolvedValue({ eras: [] })
+		;(getTimelineData as jest.Mock).mockResolvedValue({ eras: [] })
 		const data = await getTimelineData()
 		const eras = getEras(data)
 
