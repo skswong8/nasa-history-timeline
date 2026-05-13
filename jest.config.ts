@@ -18,6 +18,7 @@ const config: Config = {
 		'<rootDir>/.next/',
 		'<rootDir>/node_modules/',
 		'<rootDir>/__tests__/mocks/',
+		'<rootDir>/__tests__/e2e/',
 	],
 }
 
