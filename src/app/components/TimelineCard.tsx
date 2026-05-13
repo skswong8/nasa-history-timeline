@@ -38,9 +38,9 @@ export default function TimelineCard({ era, showYear }: CardProps) {
 				<div className="timeline-card__container h-[440px]">
 					<div className=" timeline-card__content-container relative h-[calc(100%-30px)] lg:h-full">
 						<div className="flex flex-col justify-end h-full relative timeline-card__content">
-							<h3 className="timeline-card__title px-4 text-lg font-bold mb-2 relative indent-[20px]">
+							<h2 className="timeline-card__title px-4 text-lg font-bold mb-2 relative indent-[20px]">
 								{title}
-							</h3>
+							</h2>
 							{tag && (
 								<div className="timeline-card__tag order-first mr-auto mb-auto text-white px-2 py-1 text-sm shadow-xl">
 									{tag}

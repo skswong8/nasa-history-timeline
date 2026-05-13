@@ -10,7 +10,7 @@ describe('TimelineCard', () => {
 	it('renders the title', () => {
 		render(<TimelineCard era={ firstItem } showYear={ true } />)
 
-		const heading = screen.getByRole('heading', { level: 3 })
+		const heading = screen.getByRole('heading', { level: 2 })
 
 		expect(heading).toHaveTextContent(firstItem.title)
 	})
