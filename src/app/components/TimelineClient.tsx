@@ -22,15 +22,16 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 	const [eraDescription, setEraDescription] = useState<string>(
 		eras[0].description,
 	)
-	const timelineRef = useRef(null)
 	const [erasLive, setErasLive] = useState('')
 	const [cardCountLive, setCardCountLive] = useState('')
-	const windowWidth = useWindowWidth()
-	const isDesktop = windowWidth !== null && windowWidth >= DESKTOP_WIDTH
 	const [selectedSnap, setSelectedSnap] = useState(0)
 	const [activeIndex, setActiveIndex] = useState(0)
 	const [progressWidth, setProgressWidth] = useState('0px')
+
+	const timelineRef = useRef(null)
 	const erasMobileRef = useRef<TimelineErasMobileRef>(null)
+	const windowWidth = useWindowWidth()
+	const isDesktop = windowWidth !== null && windowWidth >= DESKTOP_WIDTH
 
 	return (
 		<main id="main">
