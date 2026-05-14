@@ -32,12 +32,12 @@ export default function TimelineNavigationCards({
 	const { previous, next, previousLabel, nextLabel } = navigation
 
 	const buttonClasses =
-		'relative flex justify-between items-center cursor-pointer text-lg text-white bg-black hover:bg-gray-950 p-4 rounded-xl border-1 w-full transition duration-250 h-[202px] lg:h-[163px]'
+		'timeline-navigation__button relative flex justify-between items-center cursor-pointer text-lg text-white bg-black hover:bg-gray-950 p-4 rounded-xl border-1 w-full transition duration-250 h-[202px] lg:h-[163px]'
 
 	return (
 		<div className="lg:grid grid-cols-3 justify-center gap-8 flex flex-col h-full max-lg:w-[340px]">
 			<button
-				className={`${buttonClasses} ${className} ${previous === null ? 'hidden' : ''}`}
+				className={`${buttonClasses} ${previous === null ? 'hidden' : ''}`}
 				data-era={previous}
 				onClick={() => {
 					if (previous) setSelectedEra(previous)
