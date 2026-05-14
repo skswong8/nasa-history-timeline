@@ -112,7 +112,7 @@ export default function TimelineCarousel({
 				</button>
 			</div>
 
-			<div ref={emblaRef} className="embla overflow-hidden">
+			<div ref={emblaRef} className="timeline-carousel embla overflow-hidden">
 				<div className="embla__container flex gap-8">
 					{items.map((item, index) => (
 						<TimelineCard key={index} era={item} showYear={item.showYear} />
@@ -130,7 +130,7 @@ export default function TimelineCarousel({
 				</div>
 
 				<div className="flex justify-center mt-8">
-					<span className="bg-gray-800 py-1 px-2 rounded-xl text-sm">
+					<span className="card-count bg-gray-800 py-1 px-2 rounded-xl text-sm">
 						{cardLabel}
 					</span>
 				</div>

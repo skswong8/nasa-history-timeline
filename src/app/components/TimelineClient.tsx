@@ -43,7 +43,7 @@ export default function TimelineClient({ eras }: TimelineClientProps) {
 					<h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
 						NASA History Timeline
 					</h1>
-					<p className="lg:mx-32">{eraDescription}</p>
+					<p className="timeline-description lg:mx-32">{eraDescription}</p>
 				</div>
 				{isDesktop ? (
 					<TimelineErasDesktop
