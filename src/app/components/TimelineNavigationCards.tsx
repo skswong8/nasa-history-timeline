@@ -37,7 +37,7 @@ export default function TimelineNavigationCards({
 	return (
 		<div className="lg:grid grid-cols-3 justify-center gap-8 flex flex-col h-full max-lg:w-[340px]">
 			<button
-				className={`${buttonClasses} ${previous === null ? 'hidden' : ''}`}
+				className={`${buttonClasses} ${typeof className !== 'undefined' ? className : ''} ${previous === null ? 'hidden' : ''}`}
 				data-era={previous}
 				onClick={() => {
 					if (previous) setSelectedEra(previous)
