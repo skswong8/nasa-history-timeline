@@ -5,19 +5,12 @@ test.describe('Era Navigation', () => {
 		await page.goto('/')
 	})
 
-	test('first era button is active on load', async ({ page, isMobile }) => {
-		test.skip(isMobile, 'desktop only')
-
+	test('first era button is active on load', async ({ page }) => {
 		const button = page.getByRole('button', { name: /1958/i })
 		await expect(button.first()).toHaveClass(/timeline-filter__item--active/)
 	})
 
-	test('clicking second era updates active button', async ({
-		page,
-		isMobile,
-	}) => {
-		test.skip(isMobile, 'desktop only')
-
+	test('clicking second era updates active button', async ({ page }) => {
 		const firstButton = page.locator('.timeline-filter__item').nth(0)
 		const secondButton = page.locator('.timeline-filter__item').nth(1)
 		await secondButton.click()
@@ -25,23 +18,17 @@ test.describe('Era Navigation', () => {
 		await expect(secondButton).toHaveClass(/timeline-filter__item--active/)
 	})
 
-	test('clicking second era updates description', async ({
-		page,
-		isMobile,
-	}) => {
-		test.skip(isMobile, 'desktop only')
-
+	test('clicking second era updates description', async ({ page }) => {
 		const description = page.locator('.timeline-description')
 		const oldText = await description.innerText()
 		const secondButton = page.locator('.timeline-filter__item').nth(1)
 		await secondButton.click()
 		await expect(description).not.toHaveText(oldText)
+		await page.waitForTimeout(200)
 		await expect(description).toHaveText(/Post-Apollo/)
 	})
 
-	test('clicking second era updates cards', async ({ page, isMobile }) => {
-		test.skip(isMobile, 'desktop only')
-
+	test('clicking second era updates cards', async ({ page }) => {
 		const card = page.locator('.timeline-card').first()
 		const oldTitle = await card.getByRole('heading', { level: 2 }).innerText()
 		const secondButton = page.locator('.timeline-filter__item').nth(1)
